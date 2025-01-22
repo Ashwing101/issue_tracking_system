@@ -38,6 +38,7 @@ public class TicketController {
 
         return new ResponseEntity<>(updatedticketId, HttpStatus.OK);
     }
+    
     // Delete specific ticket
     @PostMapping
     public ResponseEntity<TicketModel> deleteTicket(@RequestBody TicketModel ticketId){

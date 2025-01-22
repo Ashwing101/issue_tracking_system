@@ -8,14 +8,20 @@ import java.util.List;
 @Service
 public class TicketService {
     public List<TicketModel> getAllTickets() {
+
+        //Code to be added to return all the tickets 
         return  null;
     }
 
     public TicketModel UpdateTicket(TicketModel ticket) {
+        //Code to be added regarding updating a ticket with the perticular Id 
+
         return null;
     }
 
     public TicketModel createTicket(TicketModel ticket) {
+        //Code to be added regarding creating a Ticket 
+
         return null;
     }
 }
