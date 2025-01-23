@@ -13,7 +13,7 @@ public class TicketService {
         return  null;
     }
 
-    public TicketModel UpdateTicket(TicketModel ticket) {
+    public TicketModel UpdateTicket(Integer ticketId) {
         //Code to be added regarding updating a ticket with the perticular Id 
 
         return null;

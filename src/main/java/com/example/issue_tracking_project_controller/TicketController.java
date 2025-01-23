@@ -32,13 +32,13 @@ public class TicketController {
 
     // Update specific ticket
     @PutMapping
-    public ResponseEntity<TicketModel> updateTicket(@RequestBody TicketModel ticketId){
+    public ResponseEntity<TicketModel> updateTicket(Integer ticketId){
 
         TicketModel updatedticketId =  ticketService.UpdateTicket(ticketId);
 
         return new ResponseEntity<>(updatedticketId, HttpStatus.OK);
     }
-    
+
     // Delete specific ticket
     @PostMapping
     public ResponseEntity<TicketModel> deleteTicket(@RequestBody TicketModel ticketId){
