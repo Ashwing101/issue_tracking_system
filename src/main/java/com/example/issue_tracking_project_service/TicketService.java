@@ -18,7 +18,12 @@ public class TicketService {
 
         return null;
     }
+    
+    public TicketModel DeleteTicket(Integer ticketId) {
+        //Code to be added regarding updating a ticket with the perticular Id 
 
+        return null;
+    }
     public TicketModel createTicket(TicketModel ticket) {
         //Code to be added regarding creating a Ticket 
 

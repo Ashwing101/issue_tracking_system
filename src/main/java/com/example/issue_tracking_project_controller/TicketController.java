@@ -41,9 +41,9 @@ public class TicketController {
 
     // Delete specific ticket
     @PostMapping
-    public ResponseEntity<TicketModel> deleteTicket(@RequestBody TicketModel ticketId){
+    public ResponseEntity<TicketModel> deleteTicket(Integer ticketId){
 
-        TicketModel deletedticketId =  ticketService.UpdateTicket(ticketId);
+        TicketModel deletedticketId =  ticketService.DeleteTicket(ticketId);
 
         return  new ResponseEntity<>(deletedticketId, HttpStatus.OK);
     }
