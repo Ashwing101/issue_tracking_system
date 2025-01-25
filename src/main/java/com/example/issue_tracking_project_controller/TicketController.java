@@ -13,7 +13,6 @@ import java.util.List;
 public class TicketController {
 
     TicketService ticketService;
-
     // Retrieve all tickets
     @GetMapping
     public ResponseEntity<List<TicketModel>> getAllTickets() {
