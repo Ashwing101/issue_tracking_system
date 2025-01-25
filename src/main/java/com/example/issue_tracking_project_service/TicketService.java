@@ -15,14 +15,18 @@ public class TicketService {
 
     public TicketModel UpdateTicket(Integer ticketId) {
         //Code to be added regarding updating a ticket with the perticular Id 
-
+        if(ticketId != null){
+           //Database Select * from table where nticketId = ticketId;
+      
+        }
         return null;
     }
     
     public String DeleteTicket(Integer ticketId) {
         //Code to be added regarding updating a ticket with the perticular Id 
         if(ticketId != null){
-            //Database Select * from table where nticketId = ticketId;
+            
+            //Delete from the table where nticketId = ticketId
             return "Ticket Deleted Successfully";
         }else{
             return "Ticket Not Found";
