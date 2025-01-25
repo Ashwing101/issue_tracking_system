@@ -40,10 +40,10 @@ public class TicketController {
 
     // Delete specific ticket
     @PostMapping
-    public ResponseEntity<TicketModel> deleteTicket(Integer ticketId){
+    public String deleteTicket(Integer ticketId){
 
-        TicketModel deletedticketId =  ticketService.DeleteTicket(ticketId);
+        String message =  ticketService.DeleteTicket(ticketId);
 
-        return  new ResponseEntity<>(deletedticketId, HttpStatus.OK);
+        return message;
     }
 }
