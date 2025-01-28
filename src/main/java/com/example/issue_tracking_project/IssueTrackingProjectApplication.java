@@ -37,9 +37,6 @@ public class IssueTrackingProjectApplication {
         
         FirebaseApp.initializeApp(options);
 
-        // FirebaseApp myApp = FirebaseApp.initializeApp(getApplicationContext(),options,
-        // "MyAppName");
-
         SpringApplication.run(IssueTrackingProjectApplication.class, args);
     }
 
