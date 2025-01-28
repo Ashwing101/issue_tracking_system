@@ -1,4 +1,4 @@
-package com.example.issue_tracking_project_model;
+package com.example.issue_tracking_project;
 
 
 import jakarta.persistence.Entity;

@@ -1,6 +1,5 @@
-package com.example.issue_tracking_project_service;
+package com.example.issue_tracking_project;
 
-import com.example.issue_tracking_project_model.TicketModel;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +12,7 @@ public class TicketService {
         return  null;
     }
 
-    public TicketModel UpdateTicket(Integer ticketId) {
+    public TicketModel updateTicket(TicketModel ticketId) {
         //Code to be added regarding updating a ticket with the perticular Id 
         if(ticketId != null){
            //Database Select * from table where nticketId = ticketId;
@@ -22,7 +21,7 @@ public class TicketService {
         return null;
     }
     
-    public String DeleteTicket(Integer ticketId) {
+    public String deleteTicket(Integer ticketId) {
         //Code to be added regarding updating a ticket with the perticular Id 
         if(ticketId != null){
             
