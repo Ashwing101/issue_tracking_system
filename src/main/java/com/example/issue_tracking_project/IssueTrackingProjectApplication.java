@@ -17,8 +17,6 @@ import com.google.firebase.FirebaseOptions;
 public class IssueTrackingProjectApplication {
 
     
-
-    
     public static void main(String[] args) throws IOException {
         ClassLoader classLoader = IssueTrackingProjectApplication.class.getClassLoader();
         File file = new File(classLoader.getResource("serviceAccountKey.json").getFile());
@@ -32,7 +30,7 @@ public class IssueTrackingProjectApplication {
 
         FirebaseOptions options = FirebaseOptions.builder()
         .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-        .setDatabaseUrl("https://issue-tracking-db-default-rtdb.firebaseio.com/") // Your database URL
+        .setDatabaseUrl("https://issue-tracking-db-default-rtdb.firebaseio.com/")
         .build();
         
         FirebaseApp.initializeApp(options);
