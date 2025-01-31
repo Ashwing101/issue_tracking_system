@@ -13,6 +13,9 @@ import lombok.Setter;
 @Setter
 public class TicketModel {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int nId;
     private String description;
     private String sStatus;
     private String sAssigned;
