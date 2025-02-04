@@ -26,8 +26,8 @@ public class TicketController {
     // }
 
     // Retrieve all tickets
-    @GetMapping
-    public ResponseEntity<List<TicketModel>> getAllTickets() {
+    @GetMapping("/getAllTickets")
+    public ResponseEntity<List<TicketModel>> getTickets() {
         List<TicketModel> tickets = ticketService.getAllTickets();
         return new ResponseEntity<>(tickets, HttpStatus.OK);
     }

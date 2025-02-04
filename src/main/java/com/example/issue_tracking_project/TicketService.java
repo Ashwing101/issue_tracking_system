@@ -38,7 +38,7 @@ public class TicketService {
         if(ticketId != null){
            //Database Select * from table where nticketId = ticketId;
          String status = "Open";
-         tickets = ticketrepository.findBysStatus(status);
+         tickets = ticketrepository.findBystatus(status);
         
         }
         return tickets;
