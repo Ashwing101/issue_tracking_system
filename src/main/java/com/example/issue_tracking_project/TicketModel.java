@@ -17,11 +17,12 @@ public class TicketModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int nId;
+    private int id;
+    private String title;
     private String description;
-    private String sStatus;
-    private String sAssigned;
-    private String sSupervisor;
+    private String status;
+    private String assignedto;
+    private String assignedby;
 
  
 

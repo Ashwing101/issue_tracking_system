@@ -41,9 +41,9 @@ public class TicketController {
 
     // Update a specific ticket
     @PutMapping("/{ticketId}")
-    public ResponseEntity<TicketModel> updateTicket(@RequestBody TicketModel ticket) {
-        TicketModel updatedTicket = ticketService.updateTicket(ticket);
-        return new ResponseEntity<>(updatedTicket, HttpStatus.OK);
+    public List<TicketModel> updateTicket(@RequestBody TicketModel ticket) {
+        List<TicketModel> updatedTicket = ticketService.updateTicket(ticket);
+        return  updatedTicket;
     }
 
     // Delete a specific ticket

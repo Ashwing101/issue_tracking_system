@@ -21,19 +21,27 @@ public class TicketService {
 
 
     public List<TicketModel> getAllTickets() {
-        String status = "Open";
-        List<TicketModel> tickets = ticketrepository.findBysStatus(status);
-        //Code to be added to return all the tickets 
-        return  tickets;
+        
+        List<TicketModel> tickets = ticketrepository.findAll(); 
+       
+            //Code to be added to return all the tickets 
+        return  tickets; 
+    
+    
+
     }
 
-    public TicketModel updateTicket(TicketModel ticketId) {
+    public List<TicketModel> updateTicket(TicketModel ticketId) {
+
+        List<TicketModel> tickets = null;
         //Code to be added regarding updating a ticket with the perticular Id 
         if(ticketId != null){
            //Database Select * from table where nticketId = ticketId;
-      
+         String status = "Open";
+         tickets = ticketrepository.findBysStatus(status);
+        
         }
-        return null;
+        return tickets;
     }
     
     public String deleteTicket(Integer ticketId) {
