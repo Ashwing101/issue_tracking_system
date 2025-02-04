@@ -22,7 +22,7 @@ public class TicketService {
 
     public List<TicketModel> getAllTickets() {
         String status = "Open";
-        List<TicketModel> tickets = ticketrepository.findBySStatus(status);
+        List<TicketModel> tickets = ticketrepository.findBysStatus(status);
         //Code to be added to return all the tickets 
         return  tickets;
     }
