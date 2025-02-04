@@ -1,0 +1,12 @@
+version: 'version'
+
+services:
+  db:
+    image: 
+    restart:
+    environment:
+      MYSQL_ROOT_PASSWORD='password'
+    ports:
+      -"3306:3306"
+    Volumes:
+         

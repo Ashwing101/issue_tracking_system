@@ -1,5 +1,6 @@
 package com.example.issue_tracking_project;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,12 +11,19 @@ import java.util.List;
 @RequestMapping("/api/ticket")
 public class TicketController {
 
+ 
     private final TicketService ticketService;
 
-    // Constructor Injection for TicketService
+    @Autowired  // This can also be omitted if there's only one constructor
     public TicketController(TicketService ticketService) {
         this.ticketService = ticketService;
     }
+
+
+    // // Constructor Injection for TicketService
+    // public TicketController(TicketService ticketService) {
+    //     this.ticketService = ticketService;
+    // }
 
     // Retrieve all tickets
     @GetMapping

@@ -1,15 +1,30 @@
 package com.example.issue_tracking_project;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
 public class TicketService {
-    public List<TicketModel> getAllTickets() {
+ 
 
+    @Autowired
+    public TicketRepository ticketrepository;
+
+    @Autowired  // This can also be omitted if there's only one constructor
+    public TicketService(TicketRepository ticketrepository) {
+        this.ticketrepository = ticketrepository;
+    }
+
+
+
+    public List<TicketModel> getAllTickets() {
+        String status = "Open";
+        List<TicketModel> tickets = ticketrepository.findBySStatus(status);
         //Code to be added to return all the tickets 
-        return  null;
+        return  tickets;
     }
 
     public TicketModel updateTicket(TicketModel ticketId) {
