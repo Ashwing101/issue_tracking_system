@@ -24,7 +24,4 @@ public class TicketModel {
     private String assignedto;
     private String assignedby;
 
- 
-
-  
 }

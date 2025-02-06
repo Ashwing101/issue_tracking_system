@@ -14,16 +14,12 @@ public class TicketController {
  
     private final TicketService ticketService;
 
-    @Autowired  // This can also be omitted if there's only one constructor
+    //This is use when you have mutiple service to Autowired in that case no need of creating mutiple 
+    // Autowired just use Constructor.
+    @Autowired  // This can also be omitted if there's only one constructor /
     public TicketController(TicketService ticketService) {
         this.ticketService = ticketService;
     }
-
-
-    // // Constructor Injection for TicketService
-    // public TicketController(TicketService ticketService) {
-    //     this.ticketService = ticketService;
-    // }
 
     // Retrieve all tickets
     @GetMapping("/getAllTickets")
