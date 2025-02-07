@@ -23,8 +23,7 @@ public class TicketService {
     public List<TicketModel> getAllTickets() {
         
         List<TicketModel> tickets = ticketrepository.findAll(); 
-       
-            //Code to be added to return all the tickets 
+      
         return  tickets; 
     
     
