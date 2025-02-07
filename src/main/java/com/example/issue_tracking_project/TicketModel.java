@@ -23,5 +23,6 @@ public class TicketModel {
     private String status;
     private String assignedto;
     private String assignedby;
+    
 
 }
