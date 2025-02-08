@@ -38,7 +38,6 @@ public class TicketService {
            //Database Select * from table where nticketId = ticketId;
          String status = "Open";
          tickets = ticketrepository.findBystatus(status);
-        
         }
         return tickets;
     }
