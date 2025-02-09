@@ -31,6 +31,9 @@ public class TicketController {
     // Create a ticket
     @PostMapping("/createTicket")
     public ResponseEntity<String> createTicket(@RequestBody TicketModel ticket) {
+        if(ticket == null){
+            return new ResponseEntity<>("Ticket Cannot be created", HttpStatus.BAD_REQUEST);
+        }
         ticketService.createTicket(ticket);
         return new ResponseEntity<>("Ticket Created Successfully", HttpStatus.CREATED);
     }
@@ -39,6 +42,11 @@ public class TicketController {
     @PutMapping("updateTicket/{ticketId}/{status}")
     public ResponseEntity<String> updateTicket(@PathVariable Integer ticketId,
     @PathVariable String status) {
+
+        if(ticketId == null || status == null){
+            return ResponseEntity.badRequest().body("Ticket ID and status are required.");
+        }
+
         try {
             ticketService.updateTicket(ticketId, status);
             return ResponseEntity.ok("Ticket status updated successfully.");
@@ -51,6 +59,9 @@ public class TicketController {
     // Delete a specific ticket
     @DeleteMapping("deleteTicket/{ticketId}")
     public ResponseEntity<String> deleteTicket(@PathVariable Integer ticketId) {
+        if(ticketId == null){
+            return new ResponseEntity<>("Ticket ID is required.", HttpStatus.BAD_REQUEST);
+        }
         try{
             String message = ticketService.deleteTicket(ticketId);
             return new ResponseEntity<>(message, HttpStatus.OK);
