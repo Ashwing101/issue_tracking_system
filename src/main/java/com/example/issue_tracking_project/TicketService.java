@@ -49,7 +49,16 @@ public class TicketService {
     }
     public TicketModel createTicket(TicketModel ticket) {
         //Code to be added regarding creating a Ticket 
+        TicketModel ticketModel = new TicketModel();
+        ticketModel.setTitle(ticket.getTitle());
+        ticketModel.setDescription(ticket.getDescription());
+        ticketModel.setStatus(ticket.getStatus());
+        ticketModel.setAssignedto(ticket.getAssignedto());
+        ticketModel.setAssignedby(ticket.getAssignedby());
 
-        return null;
+        TicketModel ticketSave = ticketrepository.save(ticket);
+        
+
+        return ticketSave;
     }
 }
