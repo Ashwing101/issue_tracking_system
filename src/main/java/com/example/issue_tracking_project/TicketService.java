@@ -22,6 +22,9 @@ public class TicketService {
     public List<TicketModel> getAllTickets() {
         
         List<TicketModel> tickets = ticketrepository.findAll(); 
+        if(tickets.isEmpty()){
+            throw new RuntimeException("No Tickets Found");
+        }
         return  tickets; 
 
     }
@@ -43,6 +46,7 @@ public class TicketService {
         //Code to be added regarding updating a ticket with the perticular Id 
         if(ticketId != null){
             //Delete from the table where nticketId = ticketId
+            ticketrepository.deleteById(ticketId);
             return "Ticket Deleted Successfully";
         }else{
             return "Ticket Not Found";

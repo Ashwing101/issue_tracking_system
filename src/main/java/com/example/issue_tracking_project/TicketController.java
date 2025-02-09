@@ -49,10 +49,15 @@ public class TicketController {
     }
 
     // Delete a specific ticket
-    @DeleteMapping("/{ticketId}")
+    @DeleteMapping("deleteTicket/{ticketId}")
     public ResponseEntity<String> deleteTicket(@PathVariable Integer ticketId) {
-        String message = ticketService.deleteTicket(ticketId);
-        return new ResponseEntity<>(message, HttpStatus.OK);
+        try{
+            String message = ticketService.deleteTicket(ticketId);
+            return new ResponseEntity<>(message, HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<>("Failed to Delete Ticket", HttpStatus.NOT_FOUND);
+        }
+       
     }
 
     // Test endpoint
