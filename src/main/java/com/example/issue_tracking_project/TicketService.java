@@ -18,15 +18,10 @@ public class TicketService {
         this.ticketrepository = ticketrepository;
     }
 
-
-
     public List<TicketModel> getAllTickets() {
         
         List<TicketModel> tickets = ticketrepository.findAll(); 
-      
         return  tickets; 
-    
-
 
     }
 
