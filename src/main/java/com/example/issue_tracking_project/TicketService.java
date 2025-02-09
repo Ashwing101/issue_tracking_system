@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -25,22 +26,22 @@ public class TicketService {
 
     }
 
-    public List<TicketModel> updateTicket(TicketModel ticketId) {
+    public void updateTicket(Integer ticketId, String status) {
 
-        List<TicketModel> tickets = null;
         //Code to be added regarding updating a ticket with the perticular Id 
         if(ticketId != null){
-           //Database Select * from table where nticketId = ticketId;
-         String status = "Open";
-         tickets = ticketrepository.findBystatus(status);
+           Optional<TicketModel> ticket = ticketrepository.findById(ticketId);
+           ticket.get().setStatus(status);
+           ticketrepository.save(ticket.get());
+        }else{
+            throw new RuntimeException("Ticket Not Found for ticketId" + ticketId);
         }
-        return tickets;
+       
     }
     
     public String deleteTicket(Integer ticketId) {
         //Code to be added regarding updating a ticket with the perticular Id 
         if(ticketId != null){
-            
             //Delete from the table where nticketId = ticketId
             return "Ticket Deleted Successfully";
         }else{
@@ -61,4 +62,5 @@ public class TicketService {
 
         return ticketSave;
     }
+
 }

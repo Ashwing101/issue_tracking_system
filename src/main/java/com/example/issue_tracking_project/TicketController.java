@@ -30,16 +30,22 @@ public class TicketController {
 
     // Create a ticket
     @PostMapping("/createTicket")
-    public ResponseEntity<TicketModel> createTicket(@RequestBody TicketModel ticket) {
-        TicketModel createdTicket = ticketService.createTicket(ticket);
-        return new ResponseEntity<>(createdTicket, HttpStatus.CREATED);
+    public ResponseEntity<String> createTicket(@RequestBody TicketModel ticket) {
+        ticketService.createTicket(ticket);
+        return new ResponseEntity<>("Ticket Created Successfully", HttpStatus.CREATED);
     }
 
     // Update a specific ticket
-    @PutMapping("/{ticketId}")
-    public List<TicketModel> updateTicket(@RequestBody TicketModel ticket) {
-        List<TicketModel> updatedTicket = ticketService.updateTicket(ticket);
-        return  updatedTicket;
+    @PutMapping("updateTicket/{ticketId}/{status}")
+    public ResponseEntity<String> updateTicket(@PathVariable Integer ticketId,
+    @PathVariable String status) {
+        try {
+            ticketService.updateTicket(ticketId, status);
+            return ResponseEntity.ok("Ticket status updated successfully.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Failed to update ticket status: " + e.getMessage());
+        }
     }
 
     // Delete a specific ticket
