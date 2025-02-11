@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,10 +18,14 @@ public class TicketUserModel {
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-private int UserId;
-private String UserName;
-private String RoleAttached;
-private String RoleId;
-private String Password;
+private int userId;
+private String userName;
+private String roleAttached;
+private String password;
+
+ @ManyToOne
+    @JoinColumn(name = "RoleId") // The foreign key column in tb_user_details
+    private TicketRoleModel role;
+
 
 }

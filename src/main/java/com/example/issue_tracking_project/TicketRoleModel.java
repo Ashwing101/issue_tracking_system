@@ -2,9 +2,6 @@ package com.example.issue_tracking_project;
 
 
 import java.util.List;
-
-import org.springframework.security.core.userdetails.UserDetails;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,12 +21,12 @@ public class TicketRoleModel {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private int Id;
 
-private String RoleId;
-private String RoleName;
-private String RoleDescription;
-private String RoleType;
+private String roleId;
+private String roleName;
+private String roleDescription;
+private String roleType;
 
-@OneToMany(mappedBy = "TicketRoleModel")
-private List<UserDetails> users;
+@OneToMany
+private List<TicketUserModel> users;
 
 }
