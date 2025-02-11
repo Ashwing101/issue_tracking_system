@@ -23,14 +23,14 @@ public class TicketController {
 
     // Retrieve all tickets
     @GetMapping("/getAllTickets")
-    public ResponseEntity<List<TicketModel>> getTickets() {
-        List<TicketModel> tickets = ticketService.getAllTickets();
+    public ResponseEntity<List<TicketDao>> getTickets() {
+        List<TicketDao> tickets = ticketService.getAllTickets();
         return new ResponseEntity<>(tickets, HttpStatus.OK);
     }
 
     // Create a ticket
     @PostMapping("/createTicket")
-    public ResponseEntity<String> createTicket(@RequestBody TicketModel ticket) {
+    public ResponseEntity<String> createTicket(@RequestBody TicketDao ticket) {
         if(ticket == null){
             return new ResponseEntity<>("Ticket Cannot be created", HttpStatus.BAD_REQUEST);
         }

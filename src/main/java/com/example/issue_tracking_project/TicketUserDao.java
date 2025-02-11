@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "tb_user_details", schema = "db_issue_tracking")
-public class TicketUserModel {
+public class TicketUserDao {
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,7 @@ private String password;
 
  @ManyToOne
     @JoinColumn(name = "RoleId") // The foreign key column in tb_user_details
-    private TicketRoleModel role;
+    private TicketRoleDao role;
 
 
 }

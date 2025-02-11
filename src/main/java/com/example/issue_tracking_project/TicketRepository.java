@@ -7,12 +7,12 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface TicketRepository extends JpaRepository<TicketModel, Integer> {
+public interface TicketRepository extends JpaRepository<TicketDao, Integer> {
 
-    List<TicketModel> findBystatus(String status);
+    List<TicketDao> findBystatus(String status);
 
-    List<TicketModel> findAll();
+    List<TicketDao> findAll();
 
-    List<TicketModel> findById(TicketModel ticketId);
+    List<TicketDao> findById(TicketDao ticketId);
 
 }

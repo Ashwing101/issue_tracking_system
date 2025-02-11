@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name = "tb_issue_tracking", schema = "db_issue_tracking")
-public class TicketModel {
+public class TicketDao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

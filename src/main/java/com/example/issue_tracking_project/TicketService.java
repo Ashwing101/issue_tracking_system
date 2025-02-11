@@ -19,9 +19,9 @@ public class TicketService {
         this.ticketrepository = ticketrepository;
     }
 
-    public List<TicketModel> getAllTickets() {
+    public List<TicketDao> getAllTickets() {
         
-        List<TicketModel> tickets = ticketrepository.findAll(); 
+        List<TicketDao> tickets = ticketrepository.findAll(); 
         if(tickets.isEmpty()){
             throw new RuntimeException("No Tickets Found");
         }
@@ -33,7 +33,7 @@ public class TicketService {
 
         //Code to be added regarding updating a ticket with the perticular Id 
         if(ticketId != null){
-           Optional<TicketModel> ticket = ticketrepository.findById(ticketId);
+           Optional<TicketDao> ticket = ticketrepository.findById(ticketId);
            ticket.get().setStatus(status);
            ticketrepository.save(ticket.get());
         }else{
@@ -52,19 +52,24 @@ public class TicketService {
             return "Ticket Not Found";
         }
     }
-    public TicketModel createTicket(TicketModel ticket) {
+    public TicketDao createTicket(TicketDao ticket) {
         //Code to be added regarding creating a Ticket 
-        TicketModel ticketModel = new TicketModel();
+        TicketDao ticketModel = new TicketDao();
         ticketModel.setTitle(ticket.getTitle());
         ticketModel.setDescription(ticket.getDescription());
         ticketModel.setStatus(ticket.getStatus());
         ticketModel.setAssignedto(ticket.getAssignedto());
         ticketModel.setAssignedby(ticket.getAssignedby());
 
-        TicketModel ticketSave = ticketrepository.save(ticket);
+        TicketDao ticketSave = ticketrepository.save(ticket);
         
 
         return ticketSave;
+    }
+
+    public TicketLoginModel getLogin(TicketLoginModel ticketLoginModel) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getLogin'");
     }
 
 }

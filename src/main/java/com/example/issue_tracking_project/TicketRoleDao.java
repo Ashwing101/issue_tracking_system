@@ -15,7 +15,7 @@ import lombok.Setter;
 @Getter
 @Entity
 @Table(name = "tb_roles", schema = "db_issue_tracking")
-public class TicketRoleModel {
+public class TicketRoleDao {
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +27,6 @@ private String roleDescription;
 private String roleType;
 
 @OneToMany
-private List<TicketUserModel> users;
+private List<TicketUserDao> users;
 
 }
