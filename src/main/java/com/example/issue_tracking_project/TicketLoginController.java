@@ -21,7 +21,6 @@ public class TicketLoginController {
         if(ticketLoginModel.getEmailId() == null || ticketLoginModel.getPassword() == null){
             return ResponseEntity.ok(new TicketResponseEntity<>(false,"Email Id and Password cannot be Null", null));
         }
-        
         TicketLoginModel ticketlogin = ticketService.getLogin(ticketLoginModel);
 
          return ResponseEntity.ok(new TicketResponseEntity<>(false,"Email Id and Password cannot be Null", ticketlogin));
