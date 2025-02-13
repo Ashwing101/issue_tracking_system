@@ -1,6 +1,7 @@
 package com.example.issue_tracking_project;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,10 +14,14 @@ public class TicketService {
 
     @Autowired
     public TicketRepository ticketrepository;
+    
+    public TicketLoginRepository ticketLoginRepository;
+
 
     @Autowired  // This can also be omitted if there's only one constructor
-    public TicketService(TicketRepository ticketrepository) {
+    public TicketService(TicketRepository ticketrepository, TicketLoginRepository ticketLoginRepository) {
         this.ticketrepository = ticketrepository;
+        this.ticketLoginRepository = ticketLoginRepository;
     }
 
     public List<TicketDao> getAllTickets() {
@@ -67,9 +72,22 @@ public class TicketService {
         return ticketSave;
     }
 
-    public TicketLoginModel getLogin(TicketLoginModel ticketLoginModel) {
+    public ResponseEntity<TicketResponseEntity<TicketLoginModel>> getLogin(TicketLoginModel ticketLoginModel) {
+
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getLogin'");
+        TicketUserDao ticketUserDao = ticketLoginRepository.findAllByemailId(ticketLoginModel.getEmailId());
+        if(ticketUserDao == null){
+            throw new RuntimeException("No User Found");
+        }
+        if(!ticketUserDao.getPassword().equals(ticketLoginModel.getPassword())){
+            return ResponseEntity.ok(new TicketResponseEntity<>(false,"Password Mismatch", null));
+        }
+
+       ticketLoginModel.setEmailId(ticketUserDao.getEmailId());
+       ticketLoginModel.setPassword(ticketUserDao.getPassword());
+       ticketLoginModel.setRoleId(ticketUserDao.getRole().getRoleId());
+
+        return ResponseEntity.ok(new TicketResponseEntity<>(true, "Login Successful", ticketLoginModel));
     }
 
 }

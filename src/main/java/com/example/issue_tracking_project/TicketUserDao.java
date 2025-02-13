@@ -22,10 +22,10 @@ private int userId;
 private String userName;
 private String roleAttached;
 private String password;
+private String emailId;
 
  @ManyToOne
     @JoinColumn(name = "RoleId") // The foreign key column in tb_user_details
     private TicketRoleDao role;
-
 
 }

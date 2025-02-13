@@ -33,3 +33,17 @@ private String password;
 Insert into tb_user_details (user_name, role_attached, password) VALUES ('Sam', 'Admin', 'Sam@123'),( 'David', 'Developer', 'David@123'),('John', 'Tester', 'John@123'),( 'Ashwini', 'Developer', 'Ashwini@123'),('Charles', 'Tester', 'Charles@123');+---------+-------------+---------------+-----------+--------+
 
 update tb_user_details set RoleId ="Role101" where role_attached = "Admin";
+
+
++---------+-------------+---------------+-----------+---------+----------+---------+
+| user_id | password    | role_attached | user_name | RoleId  | email_id | role_id |
++---------+-------------+---------------+-----------+---------+----------+---------+
+|       1 | Sam@123     | Admin         | Sam       | Role101 | NULL     |    NULL |
+|       2 | David@123   | Developer     | David     | Role102 | NULL     |    NULL |
+|       3 | John@123    | Tester        | John      | Role103 | NULL     |    NULL |
+|       4 | Ashwini@123 | Developer     | Ashwini   | Role102 | NULL     |    NULL |
+|       5 | Charles@123 | Tester        | Charles   | Role103 | NULL     |    NULL |
++---------+-------------+---------------+-----------+---------+----------+---------+
+
+
+
