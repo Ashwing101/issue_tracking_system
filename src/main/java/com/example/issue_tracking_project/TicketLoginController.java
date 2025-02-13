@@ -26,6 +26,4 @@ public class TicketLoginController {
          return ResponseEntity.ok(new TicketResponseEntity<>(false,"Email Id and Password cannot be Null", ticketlogin));
     }
 
-
-
 }
