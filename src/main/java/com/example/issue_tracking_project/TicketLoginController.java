@@ -12,8 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class TicketLoginController {
 
-    @Autowired
+    
     TicketService ticketService;
+
+    public TicketLoginController(TicketService ticketService) {
+        this.ticketService = ticketService;
+    }
 
     @PostMapping("/login")
     public ResponseEntity<TicketResponseEntity<TicketLoginModel>> login(@RequestBody TicketLoginModel  ticketLoginModel ){
