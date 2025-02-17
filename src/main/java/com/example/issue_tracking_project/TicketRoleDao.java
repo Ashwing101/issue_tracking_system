@@ -20,7 +20,6 @@ public class TicketRoleDao {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private int Id;
-
 private String roleId;
 private String roleName;
 private String roleDescription;

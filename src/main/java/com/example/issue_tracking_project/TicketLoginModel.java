@@ -11,5 +11,4 @@ public class TicketLoginModel {
     private String password;
     private String emailId;
     private String roleId;
-
 }
